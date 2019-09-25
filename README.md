@@ -3,11 +3,11 @@
 #### I. Install Docker and Docker Compose
 ```bash
 curl https://get.docker.com/ | bash
-sudo apt-get install docker-compose
+apt-get install docker-compose
 ```
 #### II. Clone Asperathos Compose repository
 ```bash
-git clone https://git.lsd.ufcg.edu.br/asperathos/asperathos-compose
+git clone https://github.com/ufcg-lsd/asperathos-compose
 cd asperathos-compose
 ```
 #### III. Set your KUBECONFIG env var
