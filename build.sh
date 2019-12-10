@@ -69,7 +69,7 @@ then
 fi
 
 echo 'Building local images'
-docker build controller/asperathos_controller -t asperathos_controller
-docker build monitor/asperathos_monitor -t asperathos_monitor
-docker build manager/asperathos_manager -t asperathos_manager
-docker build visualizer/asperathos_visualizer -t asperathos_visualizer
+docker build controller/asperathos_controller/ -t asperathos_controller
+docker build monitor/asperathos_monitor/ -t asperathos_monitor
+docker build manager/asperathos_manager/ -t asperathos_manager
+docker build visualizer/asperathos_visualizer/ -t asperathos_visualizer
