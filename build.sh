@@ -10,12 +10,12 @@ helpFunction()
    exit 1
 }
 
-DIRECTORY="manager/asperathos-manager"
+DIRECTORY="asperathos-manager"
 
 DEFAULT_BRANCH="stable"
 
 if [ -d "$DIRECTORY" ]; then
-    cd manager/asperathos-manager
+    cd asperathos-manager
     CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
     cd ../..
 fi
@@ -49,10 +49,10 @@ fi
 if [[ -z "$LOCAL"  &&  "$RESET" ]] || [[ -z "$LOCAL"  && "$CURRENT_BRANCH" != "$BRANCH" ]]
 then
     echo "Deleting existing files"
-    rm -rf controller/asperathos-controller/
-    rm -rf visualizer/asperathos-visualizer/
-    rm -rf manager/asperathos-manager/
-    rm -rf monitor/asperathos-monitor/
+    rm -rf asperathos-controller/
+    rm -rf asperathos-visualizer/
+    rm -rf asperathos-manager/
+    rm -rf asperathos-monitor/
 fi
 
 
@@ -62,14 +62,14 @@ fi
 if [ -z "$LOCAL" ]
 then
     echo "Cloning the branch ${BRANCH}"
-    git clone https://github.com/ufcg-lsd/asperathos-controller ./controller/asperathos-controller -b $BRANCH
-    git clone https://github.com/ufcg-lsd/asperathos-monitor ./monitor/asperathos-monitor -b $BRANCH
-    git clone https://github.com/ufcg-lsd/asperathos-manager ./manager/asperathos-manager -b $BRANCH
-    git clone https://github.com/ufcg-lsd/asperathos-visualizer ./visualizer/asperathos-visualizer -b $BRANCH
+    git clone https://github.com/ufcg-lsd/asperathos-controller ./asperathos-controller -b $BRANCH
+    git clone https://github.com/ufcg-lsd/asperathos-monitor ./asperathos-monitor -b $BRANCH
+    git clone https://github.com/ufcg-lsd/asperathos-manager ./asperathos-manager -b $BRANCH
+    git clone https://github.com/ufcg-lsd/asperathos-visualizer ./asperathos-visualizer -b $BRANCH
 fi
 
 echo 'Building local images'
-docker build controller/asperathos_controller/ -t asperathos_controller
-docker build monitor/asperathos_monitor/ -t asperathos_monitor
-docker build manager/asperathos_manager/ -t asperathos_manager
-docker build visualizer/asperathos_visualizer/ -t asperathos_visualizer
+docker build asperathos-controller/ -t asperathos_controller
+docker build asperathos-monitor/ -t asperathos_monitor
+docker build asperathos-manager/ -t asperathos_manager
+docker build asperathos-visualizer/ -t asperathos_visualizer
