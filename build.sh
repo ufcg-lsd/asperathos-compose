@@ -56,9 +56,6 @@ then
 fi
 
 
-
-
-
 if [ -z "$LOCAL" ]
 then
     echo "Cloning the branch ${BRANCH}..."
@@ -67,6 +64,7 @@ then
     git clone https://github.com/ufcg-lsd/asperathos-manager ./asperathos-manager -b $BRANCH
     git clone https://github.com/ufcg-lsd/asperathos-visualizer ./asperathos-visualizer -b $BRANCH
 fi
+
 
 echo 'Building local images...'
 docker build asperathos-controller/ -t asperathos_controller
