@@ -18,7 +18,10 @@ export KUBECONFIG=/path/to/your/kube/config
 ```bash
 ./build.sh
 ```
-For more information about the build script ```./build -h```
+For more information about the build script
+```bash
+./build.sh -h
+```
 #### V. Run compose
 ```bash
 docker-compose up

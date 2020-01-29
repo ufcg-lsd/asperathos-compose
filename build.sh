@@ -5,8 +5,8 @@ helpFunction()
    echo ""
    echo "Usage: $0 -b BRANCH [-r] [-l] [-h]"
    echo -e "\t-b BRANCH      Select Branch        The branch you want to clone from (the same branch will be used for all projects). If you use -b with a branch different from the current one the files will be deleted and the new branch will be downloaded"
-   echo -e "\t-r             Reset                If you want to reset the current asperathos files"
-   echo -e "\t-l             Local Rebuild        If you want to rebuild using the local files. If you use this flag the other's will be ignored."
+   echo -e "\t-r             Reset                If you want to reset all of the current asperathos files (both code and config files)"
+   echo -e "\t-l             Local Rebuild        If you want to rebuild using the local files. If you use this flag the others will be ignored."
    exit 1
 }
 
@@ -61,14 +61,14 @@ fi
 
 if [ -z "$LOCAL" ]
 then
-    echo "Cloning the branch ${BRANCH}"
+    echo "Cloning the branch ${BRANCH}..."
     git clone https://github.com/ufcg-lsd/asperathos-controller ./asperathos-controller -b $BRANCH
     git clone https://github.com/ufcg-lsd/asperathos-monitor ./asperathos-monitor -b $BRANCH
     git clone https://github.com/ufcg-lsd/asperathos-manager ./asperathos-manager -b $BRANCH
     git clone https://github.com/ufcg-lsd/asperathos-visualizer ./asperathos-visualizer -b $BRANCH
 fi
 
-echo 'Building local images'
+echo 'Building local images...'
 docker build asperathos-controller/ -t asperathos_controller
 docker build asperathos-monitor/ -t asperathos_monitor
 docker build asperathos-manager/ -t asperathos_manager
