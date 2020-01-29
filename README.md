@@ -18,7 +18,7 @@ export KUBECONFIG=/path/to/your/kube/config
 ```bash
 ./build.sh
 ```
-For more information about the build script
+For more information about the build script:
 ```bash
 ./build.sh -h
 ```
