@@ -17,7 +17,7 @@ DEFAULT_BRANCH="stable"
 if [ -d "$DIRECTORY" ]; then
     cd asperathos-manager
     CURRENT_BRANCH=$(git branch | grep \* | cut -d ' ' -f2)
-    cd ../..
+    cd ..
 fi
 
 
